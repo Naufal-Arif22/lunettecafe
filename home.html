@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<title>Lunette Cafe</title>
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet'>
+
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #778a35;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .logo img {
+        height: 70px;
+        width: auto;
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .navbar .nav-links li {
+        margin: 0 15px;
+		position: relative;
+    }
+
+    .navbar .nav-links li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #81b622;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links li a:hover {
+        color: #A47551;
+    }
+
+.navbar .nav-links .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .navbar .nav-links li:hover .dropdown {
+      display: flex;
+    }
+
+    .navbar .nav-links .dropdown a {
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links .dropdown a:hover {
+      background-color: #81b622;
+      color: white;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .search-bar button {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .search-bar button:hover {
+        background-color: #A47551;
+    }
+
+    .reservation-btn {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .reservation-btn:hover {
+        background-color: #A47551;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .nav-links {
+        flex-direction: column;
+        display: none;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        z-index: 10;
+      }
+
+      .navbar .nav-links.active {
+        display: flex;
+      }
+
+      .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        margin-left: auto;
+      }
+
+      .navbar .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar .nav-links .dropdown {
+        position: static;
+        box-shadow: none;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      color: #81b622;
+      cursor: pointer;
+    }
+
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slideshow-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        display: none;
+    }
+
+    .active-slide {
+        display: block;
+    }
+
+    .dots {
+        text-align: center;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        z-index: 1001;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #81b622;
+    }
+
+    .text-section {
+        background-color: #ffffff;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .text-section h1 {
+		font-family: 'Charm';
+		text-shadow: 2px 2px 4px #B2D2A4;
+		font-size: 36px;
+        font-weight: bold;
+        color: #81b622;
+        margin-bottom: 20px;
+    }
+
+    .text-section p {
+        font-size: 18px;
+        color: #555555;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .text-section p span {
+        font-weight: bold;
+    }
+	
+	#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border:none;
+  font-size: 30px;
+  background-color: #778A35;
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+#myBtn:hover {
+  background-color: #778A35;
+}
+
+	.lemon-lime {
+		color: white;
+		background-color: #81b622;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+	
+	.footer {
+		padding-bottom: 32px;
+		color: white;
+		background-color: #2c3d1f;
+	}
+	
+</style>
+</head>
+
+<body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#11165</button>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+			<a href="index.html">
+            <img src="images/lunettelogo.png" alt="Lunette Logo"></a>
+        </div>
+
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="menu.html">MENU</a> <i class="fa fa-caret-down" style="color: #81b622;">
+				</i><div class="dropdown">
+            <a href="menu.html#desserts">Desserts</a>
+            <a href="menu.html#meals">Meals</a>
+            <a href="menu.html#beverages">Beverages</a>
+          </div>
+        </li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+
+            <div class="search-bar">
+			
+                <input type="text"  placeholder="Search..."">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+	<button class="reservation-btn" onclick="document.location='reservation.html'">RESERVATION</button>
+    </div> 
+
+    <!-- Fullscreen Slideshow -->
+    <div class="slideshow-container">
+        <img src="images/slide3.png" class="active-slide" alt="Slide 1">
+        <img src="images/slide1.png" alt="Slide 2">
+        <img src="images/slide2.png" alt="Slide 3">
+    </div>
+
+    <div class="dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!-- Text Section -->
+    <div class="text-section">
+        <h1>Have the best at Lunette<br>─── ⋆⋅☆⋅⋆ ──</h1>
+          
+			<p><span>Welcome to Lunette Café, where every bite is a celebration of
+			flavor and warmth.Whether you’re here to indulge in our handcrafted desserts, 
+			or savor a hearty meal, we promise an unforgettable dining experience.
+			Step into a cozy ambiance perfect for catching up with friends, 
+			spending quality time with family, or simply treating yourself
+			to a moment of bliss. At Lunette Café, it’s not just about food it’s 
+			about creating memories, one delicious moment at a time.</span> 
+        </p>
+		<h1>꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦</>
+    </div>
+
+<script>
+
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slideshow-container img');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides() {
+        slides.forEach((slide, index) => {
+            slide.style.display = 'none';
+            dots[index].classList.remove('active');
+        });
+
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].style.display = 'block';
+        dots[slideIndex].classList.add('active');
+        setTimeout(showSlides, 5000); 
+    }
+
+    function currentSlide(n) {
+        slideIndex = n - 1;
+        showSlides();
+    }
+
+    window.onload = showSlides;
+	
+    const searchMap = {
+        "about us": "about.html",
+		"history": "about.html#history",
+		"mission": "about.html#mission",
+		"vision": "about.html#vision",
+		"location": "contact.html#address",
+        "contact": "contact.html",
+        "drinks": "menu.html#beverages", 
+		"menu": "menu.html",
+        "food": "menu.html#meals",
+        "dessert": "menu.html#desserts",
+        "home": "home.html",
+		"reservation": "reservation.html",
+    };
+
+    function performSearch() {
+        const searchInput = document.querySelector('.search-bar input[type="text"]').value.toLowerCase().trim();
+        
+        if (searchMap[searchInput]) {
+            window.location.href = searchMap[searchInput]; 
+        }
+    }
+
+    document.querySelector('.search-bar button').addEventListener('click', performSearch);
+
+    document.querySelector('.search-bar input[type="text"]').addEventListener('keydown', function (e) {
+        if (e.key === "Enter") {
+            performSearch();
+        }
+    });
+</script>
+</body>
+
+  <footer>
+  
+<hr class="no_line" style="margin: 0 auto 0px auto">
+  
+  <div class="footer">
+   <div class="third margin-top center">
+   <br>
+   <br>
+   <h4 style="font-family: Arial;"><b>SITE MAP</h4></b>
+                <a href="home.html">Home </a><br>
+                <a href="about.html">About Us </a><br>
+                <a href="menu.html">Menu </a><br>
+                <a href="contact.html">Contact Us </a></br>
+				
+				</div>
+   
+      <div class="third margin-top center">
+   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>CONNECT WITH US</h4></b>
+  <a href="https://www.facebook.com/share/1DUL55VFmz/?mibextid=LQQJ4d">
+<img src="images/facebook.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://www.instagram.com/lunette.cafe?igsh=MXNyc295dmFub2dwMw==">
+<img src="images/instagram.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://wa.me/message/UJR4M6PU5T5OC1">
+<img src="images/whatsapp.png" style="width: 35px; height: 35px;"></a>
+
+</div>
+
+        <div class="third margin-top center">
+		   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>ADDRESS</h4></b>
+  <p>Lot 16794,<br> Setia Tri-angle, 11900,<br> Bayan Lepas, Pulau Pinang</p>
+
+</div>
+<div class="row-padding center"><br><br><br>© 2025 by Lunette Cafe | All Rights Reserved
+
+</div>
+</div>
+  </footer>
+
+</html>

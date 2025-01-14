@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<title>Contact Us</title>
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet'>
+
+<style>
+
+body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+.navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #778a35;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .logo img {
+        height: 70px;
+        width: auto;
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .navbar .nav-links li {
+        margin: 0 15px;
+		position: relative;
+    }
+
+    .navbar .nav-links li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #81b622;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links li a:hover {
+        color: #A47551;
+    }
+
+.navbar .nav-links .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .navbar .nav-links li:hover .dropdown {
+      display: flex;
+    }
+
+    .navbar .nav-links .dropdown a {
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links .dropdown a:hover {
+      background-color: #81b622;
+      color: white;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .search-bar button {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .search-bar button:hover {
+        background-color: #A47551;
+    }
+
+    .reservation-btn {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .reservation-btn:hover {
+        background-color: #A47551;
+    }
+
+	
+	.sage-green {
+		color: #000;
+		background-color: #D1E2C4;
+	}
+	
+		#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border:none;
+  font-size: 30px;
+  background-color: #778A35;
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+#myBtn:hover {
+  background-color: #778A35;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .bg-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+	
+.text-section h1{
+		font-family: 'Charm';
+		text-shadow: 2px 2px 4px #B2D2A4;
+        font-weight: bold;
+    }
+.text-section h2 {
+		font-family: 'Charm';
+		text-shadow: 2px 2px 4px #B2D2A4;
+		font-size: 36px;
+        font-weight: bold;
+        color: #81b622;
+        margin-bottom: 20px;
+    }
+	
+	.lemon-lime {
+		color: white;
+		background-color: #81b622;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+
+	.footer {
+		padding-bottom: 32px;
+		color: white;
+		background-color: #2c3d1f;
+	}
+
+</style>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#11165</button>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+			<a href="index.html">
+            <img src="images/lunettelogo.png" alt="Lunette Logo"></a>
+        </div>
+
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="menu.html">MENU</a> <i class="fa fa-caret-down" style="color: #81b622;">
+				</i><div class="dropdown">
+            <a href="menu.html#desserts">Desserts</a>
+            <a href="menu.html#meals">Meals</a>
+            <a href="menu.html#beverages">Beverages</a>
+          </div>
+        </li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+
+            <div class="search-bar">
+			
+                <input type="text"  placeholder="Search..."">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+	<button class="reservation-btn" onclick="document.location='reservation.html'">RESERVATION</button>
+    </div> 
+	
+<div class="bg-container text-section">
+  <img src="images/background.png" alt="Background" style="width:100%;">
+  <h1 class="centered jumbo" style="">Contact Us</h1>
+</div>
+
+	<div class="text-section container content center padding-64" style="max-width:800px" >
+    <h2 class="wide">Our Location</h2>
+	</div>
+
+<div class="center">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d993.1864700759012!2d100.26026245482728!3d5.302294578435483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304abffdf642761b%3A0x2d2adaf6b4f2ceab!2sPersiaran%20Kelicap%2C%2011900%20Bayan%20Lepas%2C%20Pulau%20Pinang!5e0!3m2!1sen!2smy!4v1736703676725!5m2!1sen!2smy" width="100%" height="500px" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<div class="text-section container content center padding-64" style="max-width:800px">
+    <h2 class="wide">Food Delivery</h2>
+    <div class="row padding-32">
+      <div class="third">
+        <h4 style="font-family: arial">GrabFood</h4>
+		<a href="https://food.grab.com/" target="_blank">
+        <img src="images/gf.png" class="round margin-bottom" alt="GrabFood" style="width:60%"></a>
+      </div>
+      <div class="third">
+        <h4 style="font-family: arial">Foodpanda<h4>
+		<a href="https://www.foodpanda.my/" target="_blank">
+        <img src="images/fp.jpg" class="round margin-bottom" alt="Foodpanda" style="width:60%"></a>
+      </div>
+      <div class="third">
+        <h4 style="font-family: arial">Shopee Food</h4>
+		<a href="https://www.shopeefood.com.my/" target="_blank">
+        <img src="images/sf.jpg" class="round" alt="Shopee Food" style="width:60%"></a>
+      </div>
+    </div>
+  </div>
+  
+<div class="text-section center container margin-top">
+    <h2>Social Media</h2>
+    <h4 style="font-family: arial">Join the conversation! We're always sharing exciting updates, engaging with our amazing community, and offering exclusive deals. 
+	<br>Follow us on social media for the latest news and the chance to connect with like-minded individuals.<br></h4>
+  </div>
+
+  <div class="row-padding padding-16">
+    <div class="third margin-bottom">
+      <img src="images/fb.png" alt="Facebook" style="width:100%">
+      <div class="container sage-green center">
+        <h3>Facebook</h3>
+		<a href="https://www.facebook.com/share/1DUL55VFmz/?mibextid=LQQJ4d" target="_blank">
+        <button class="button round block lemon-lime margin-bottom">Follow</button></a>
+      </div>
+    </div>
+    <div class="third margin-bottom">
+      <img src="images/ig.PNG" alt="Instagram" style="width:100%">
+      <div class="container sage-green center">
+        <h3>Instagram</h3>
+		<a href="https://www.instagram.com/lunette.cafe?igsh=MXNyc295dmFub2dwMw==" target="_blank">
+        <button class="button round block lemon-lime margin-bottom">Follow</button></a>
+      </div>
+    </div>
+    <div class="third margin-bottom">
+      <img src="images/ws.PNG" alt="WhatsApp" style="width:100%">
+      <div class="container sage-green center">
+        <h3>WhatsApp</h3>
+		<a href="https://wa.me/message/UJR4M6PU5T5OC1" target="_blank">
+        <button class="button round block lemon-lime margin-bottom">Chat</button></a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+    const searchMap = {
+        "about us": "about.html",
+		"history": "about.html#history",
+		"mission": "about.html#mission",
+		"vision": "about.html#vision",
+		"location": "contact.html#address",
+        "contact": "contact.html",
+        "drinks": "menu.html#beverages", 
+        "food": "menu.html#meals",
+		"menu": "menu.html",
+        "dessert": "menu.html#desserts",
+        "home": "home.html",
+		"reservation": "reservation.html",
+    };
+
+    function performSearch() {
+        const searchInput = document.querySelector('.search-bar input[type="text"]').value.toLowerCase().trim();
+        
+        if (searchMap[searchInput]) {
+            window.location.href = searchMap[searchInput]; 
+        }
+    }
+
+    document.querySelector('.search-bar button').addEventListener('click', performSearch);
+
+    document.querySelector('.search-bar input[type="text"]').addEventListener('keydown', function (e) {
+        if (e.key === "Enter") {
+            performSearch();
+        }
+    });
+</script>
+  
+  <footer>
+  
+<hr class="no_line" style="margin: 0 auto 0px auto">
+  
+  <div class="footer center">
+   <div class="third margin-top center">
+   <br>
+   <br>
+   <h4 style="font-family: Arial;"><b>SITE MAP</h4></b>
+                <a href="home.html">Home </a><br>
+                <a href="about.html">About Us </a><br>
+                <a href="menu.html">Menu </a><br>
+                <a href="contact.html">Contact Us </a></br>
+				
+				</div>
+   
+      <div class="third margin-top center">
+   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>CONNECT WITH US</h4></b>
+  <a href="https://www.facebook.com/share/1DUL55VFmz/?mibextid=LQQJ4d" target="_blank">
+<img src="images/facebook.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://www.instagram.com/lunette.cafe?igsh=MXNyc295dmFub2dwMw==" target="_blank">
+<img src="images/instagram.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://wa.me/message/UJR4M6PU5T5OC1" target="_blank">
+<img src="images/whatsapp.png" style="width: 35px; height: 35px;"></a>
+
+</div>
+
+        <div class="third margin-top center">
+		   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>ADDRESS</h4></b>
+  <p>Lot 16794,<br> Setia Tri-angle, 11900,<br> Bayan Lepas, Pulau Pinang</p>
+
+</div>
+
+<div class="row-padding center"><br><br><br>© 2025 by Lunette Cafe | All Rights Reserved
+
+</div>
+
+</div>
+
+  </footer>
+  </html>

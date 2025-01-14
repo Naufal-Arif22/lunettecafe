@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<title>Menu</title>
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet'>
+
+<style>
+
+body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+.navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #778a35;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .logo img {
+        height: 70px;
+        width: auto;
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .navbar .nav-links li {
+        margin: 0 15px;
+		position: relative;
+    }
+
+    .navbar .nav-links li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #81b622;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links li a:hover {
+        color: #A47551;
+    }
+
+.navbar .nav-links .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .navbar .nav-links li:hover .dropdown {
+      display: flex;
+    }
+
+    .navbar .nav-links .dropdown a {
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links .dropdown a:hover {
+      background-color: #81b622;
+      color: white;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .search-bar button {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .search-bar button:hover {
+        background-color: #A47551;
+    }
+
+    .reservation-btn {
+        background-color: #81b622;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .reservation-btn:hover {
+        background-color: #A47551;
+    }
+
+	
+	.sage-green {
+		color: #000;
+		background-color: #D1E2C4;
+	}
+	
+		#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border:none;
+  font-size: 30px;
+  background-color: #778A35;
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+#myBtn:hover {
+  background-color: #778A35;
+}
+
+	.lemon-lime {
+		color: white;
+		background-color: #81b622;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+
+	.footer {
+		padding-bottom: 32px;
+		color: white;
+		background-color: #2c3d1f;
+	}
+
+</style>
+<body>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#11165</button>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+			<a href="index.html">
+            <img src="images/lunettelogo.png" alt="Lunette Logo"></a>
+        </div>
+
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="menu.html">MENU</a> <i class="fa fa-caret-down" style="color: #81b622;">
+				</i><div class="dropdown">
+            <a href="menu.html#desserts">Desserts</a>
+            <a href="menu.html#meals">Meals</a>
+            <a href="menu.html#beverages">Beverages</a>
+          </div>
+        </li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+
+            <div class="search-bar">
+			
+                <input type="text"  placeholder="Search..."">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+	<button class="reservation-btn" onclick="document.location='reservation.html'">RESERVATION</button>
+    </div> 
+	
+	<video width="100%" autoplay muted loop>
+	<source src="video/birthdayspecial.mp4" type="video/mp4">
+	</video>
+	
+	<div class="container content center padding-64" style="max-width:800px" >
+    <h2 class="wide">GET READY TO INDULGE!</h2>
+    <p class="center">Our menus are a secret garden of culinary delights, hiding amongst them a profusion of heavenly desserts, 
+	delectable meals, and invigorating drinks waiting to be discovered.</p>
+	<audio controls autoplay>
+	<source src="sound/music.mp3" type="audio/mpeg">
+	</audio>
+	</div>
+	
+	
+	<div class="sage-green" id="desserts">
+    <div class="container content padding-64" style="max-width:800px">
+    <h2 class="wide center">DESSERTS</h2>
+    <p class="center"><i>We offer a refined selection of exquisite desserts,
+		meticulously crafted to delight the most discerning palate.</i></p><br>
+	</div>
+	</div>
+	
+	<div class="row-padding">
+    <div class="center padding-64">
+      <span class="xlarge bottombar border-green padding-16">Our Signatures</span>
+    </div>
+
+    <div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/dessert1.jpg" alt="Fruitful Red Velvet" style="width:100%">
+        <div class="container">
+          <h3 class="center">Fruitful Red Velvet</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM16.50 per piece</h4></center>
+          <p>Layers of velvety red cake, swirled with creamy frosting, and crowned with a medley of 
+		  fresh grapes, strawberries, and blueberries. A symphony of textures and flavors that dances on the palate.</p>
+        </div>
+      </div>
+    </div>
+
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/dessert2.jpg" alt="Parfait Trio" style="width:100%">
+        <div class="container">
+          <h3 class="center">Parfait Trio</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM35.00</h4></center>
+          <p>A trio of delectable delights, each a masterpiece in a miniature glass. 
+		  Creamy ice cream scoops nestle beside fudgy brownies, while layers of fruit and meringue 
+		  create a symphony of textures and flavors.</p>
+        </div>
+      </div>
+    </div>
+	
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/dessert3.jpg" alt="Burnt Cheesecake" style="width:100%">
+        <div class="container">
+          <h3 class="center">Burnt Cheesecake</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM18.50 per slice</h4></center>
+          <p>This burnt cheesecake boasts a deeply caramelized crust, offering a delightful contrast to its rich, creamy center. 
+		  The texture is a dream, oozing with indulgence. This is a dessert that simply cannot be resisted.</p>
+        </div>
+      </div>
+	  <br>
+		<br>
+    </div>
+	</div>
+	
+	<div class="sage-green" id="meals">
+    <div class="container content padding-64" style="max-width:800px">
+    <h2 class="wide center">MEALS</h2>
+    <p class="center"><i>Our chefs meticulously prepare each dish, infusing them with creativity and a touch of magic. 
+	Experience a symphony of tastes that will tantalize your palate.</i></p><br>
+	</div>
+	</div>
+	
+ 	<div class="row-padding">
+    <div class="center padding-64">
+      <span class="xlarge bottombar border-green padding-16">Our Signatures</span>
+    </div>
+
+    <div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/meals1.JPG" alt="Cheese-tastic Wedges" style="width:100%">
+        <div class="container">
+          <h3 class="center">Cheese-tastic Wedges</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM16.00</h4></center>
+          <p>Golden-brown potato wedges, generously drizzled with a creamy cheese sauce, and served on a bed of fresh lettuce. 
+		  A comforting dish that's perfect for sharing.</p>
+        </div>
+      </div>
+    </div>
+
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/meals2.JPG" alt="Honey Glazed Wings" style="width:100%">
+        <div class="container">
+          <h3 class="center">Honey Glazed Wings</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM18.00</h4></center>
+          <p>A plate piled high with crispy, golden-brown chicken wings, glistening with a sticky honey glaze. 
+		  Each bite is a burst of sweet and savory flavor.</p>
+        </div>
+      </div>
+    </div>
+	
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/meals3.JPG" alt="Cheesy Chicken Fries" style="width:100%">
+        <div class="container">
+          <h3 class="center">Cheesy Chicken Fries</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM15.00</h4></center>
+          <p>A mountain of golden-brown fries, generously topped with shredded chicken, melted cheese, and a sprinkle of herbs. 
+		  A hearty and satisfying dish that's perfect for sharing.</p>
+        </div>
+      </div>
+	  <br>
+		<br>
+    </div>
+	</div>
+	
+	<div class="sage-green" id="beverages">
+    <div class="container content padding-64" style="max-width:800px">
+    <h2 class="wide center">BEVERAGES</h2>
+    <p class="center"><i>Indulge in a symphony of tastes with our diverse beverage selection. 
+	Experience the perfect accompaniment to your meal with expertly crafted cocktails 
+	and refreshing non-alcoholic options.</i></p><br>
+	</div>
+	</div>
+	
+ 	<div class="row-padding">
+    <div class="center padding-64">
+      <span class="xlarge bottombar border-green padding-16">Our Signatures</span>
+    </div>
+
+    <div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/beverage1.jpg" alt="Blueple Winter" style="width:100%">
+        <div class="container">
+          <h3 class="center">Blueple Winter</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM13.00</h4></center>
+          <p>A mesmerizing blend of vibrant blue butterfly pea flower tea, topped with a layer of creamy coconut milk. 
+		  It's a visually stunning and refreshing drink that evokes the magic of winter.</p>
+        </div>
+      </div>
+    </div>
+
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/beverage2.jpg" alt="Blue Affogato" style="width:100%">
+        <div class="container">
+          <h3 class="center">Blue Affogato</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM15.00</h4></center>
+          <p>A whimsical twist on the classic Affogato. A scoop of creamy vanilla ice cream is bathed in a rich, aromatic coffee, 
+		  then topped with a vibrant blueberry skewer and a sprinkle of coconut flakes.</p>
+        </div>
+      </div>
+    </div>
+	
+	<div class="third margin-bottom">
+      <div class="card-4">
+        <img src="images/beverage3.jpg" alt="Beautea Honey Apple" style="width:100%">
+        <div class="container">
+          <h3 class="center">Beautea Honey Apple</h3>
+		  <center><h4 style="font-family: arial" class="tag dark-grey round">RM16.00</h4></center>
+          <p>A vibrant concoction of apple slices, infused with honey and sparkling water. The drink is garnished with a delicate 
+		  apple rose, creating a visually stunning and refreshing beverage.</p>
+        </div>
+      </div>
+	  <br>
+	  <br>
+	  
+    </div>
+	</div>
+</body>	
+	
+<script>
+
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+const searchMap = {
+        "about us": "about.html",
+		"history": "about.html#history",
+		"mission": "about.html#mission",
+		"vision": "about.html#vision",
+		"location": "contact.html#address",
+        "contact": "contact.html",
+        "drinks": "menu.html#beverages", 
+        "food": "menu.html#meals",
+		"menu": "menu.html",
+        "dessert": "menu.html#desserts",
+        "home": "home.html",
+		"reservation": "reservation.html",
+    };
+
+    function performSearch() {
+        const searchInput = document.querySelector('.search-bar input[type="text"]').value.toLowerCase().trim();
+        
+        if (searchMap[searchInput]) {
+            window.location.href = searchMap[searchInput]; 
+        }
+    }
+
+    document.querySelector('.search-bar button').addEventListener('click', performSearch);
+
+    document.querySelector('.search-bar input[type="text"]').addEventListener('keydown', function (e) {
+        if (e.key === "Enter") {
+            performSearch();
+        }
+    });
+</script>
+
+  <footer>
+  
+<hr class="no_line" style="margin: 0 auto 0px auto">
+  
+  <div class="footer">
+   <div class="third margin-top center">
+   <br>
+   <br>
+   <h4 style="font-family: Arial;"><b>SITE MAP</h4></b>
+                <a href="home.html">Home </a><br>
+                <a href="about.html">About Us </a><br>
+                <a href="menu.html">Menu </a><br>
+                <a href="contact.html">Contact Us </a></br>
+				
+				</div>
+   
+      <div class="third margin-top center">
+   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>CONNECT WITH US</h4></b>
+  <a href="https://www.facebook.com/share/1DUL55VFmz/?mibextid=LQQJ4d">
+<img src="images/facebook.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://www.instagram.com/lunette.cafe?igsh=MXNyc295dmFub2dwMw==">
+<img src="images/instagram.png" style="width: 35px; height: 35px;"></a>
+
+<a href="https://wa.me/message/UJR4M6PU5T5OC1">
+<img src="images/whatsapp.png" style="width: 35px; height: 35px;"></a>
+
+</div>
+
+        <div class="third margin-top center">
+		   <br>
+   <br>
+  <h4 style="font-family: Arial;"><b>ADDRESS</h4></b>
+  <p>Lot 16794,<br> Setia Tri-angle, 11900,<br> Bayan Lepas, Pulau Pinang</p>
+
+</div>
+<div class="row-padding center"><br><br><br>© 2025 by Lunette Cafe | All Rights Reserved
+
+</div>
+</div>
+  </footer>
+</html>
+	
